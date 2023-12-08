@@ -6,7 +6,7 @@ public class GoblinController : MonoBehaviour
 {
 
     public float speed;
-    public bool horizontal;
+    public bool vertical;
     public float changeTime = 3.0f;
 
     Rigidbody2D rigidbody2D;
@@ -17,6 +17,7 @@ public class GoblinController : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        timer = changeTime;
     }
 
     void Update()
@@ -36,7 +37,11 @@ public class GoblinController : MonoBehaviour
         Vector2 position = rigidbody2D.position;
         
 
-        if (horizontal)
+        if (vertical)
+        {
+            position.y = position.y + Time.deltaTime * speed;
+        }
+        else
         {
             position.x = position.x + Time.deltaTime * speed;
         }
