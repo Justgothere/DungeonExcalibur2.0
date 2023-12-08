@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: 1e6236a4ac453f048976bbbaefb69071
   - enabled: 0
-    path: Assets/Medieval Warrior Pack/Demo/SampleScene.unity
+    path: Assets/3RD Party folders/Medieval Warrior Pack/Demo/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
