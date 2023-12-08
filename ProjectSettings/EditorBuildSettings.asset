@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 15f85d39c8cda714b9c345a8941dde3a
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 56c091609c8a4a449941f3ac4f6fb13d
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 1e6236a4ac453f048976bbbaefb69071
+  - enabled: 0
+    path: Assets/Medieval Warrior Pack/Demo/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
