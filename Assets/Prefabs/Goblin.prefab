@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   vertical: 0
-  changeTime: 0.5
+  changeTime: 1.5
