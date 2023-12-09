@@ -3,7 +3,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
+    public int maxHealth = 10;
+    int currentHealth;
 
+    //This will be used in order to make player invincible after being hurt
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
+    float invincibleTimer;
+
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+    }
     void Update()
     {
         // Get input values for horizontal and vertical axes
@@ -24,5 +36,19 @@ public class PlayerController : MonoBehaviour
     {
         // Move the character using Rigidbody2D
         transform.Translate(direction * speed * Time.deltaTime);
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+                return;
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }

@@ -11,8 +11,11 @@ public class GoblinController : MonoBehaviour
 
     Animator animator;
     Rigidbody2D rigidbody2D;
+
     float timer;
     int direction = 1;
+    public float delay = 0.4f;
+    private bool attackBlocked;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +57,35 @@ public class GoblinController : MonoBehaviour
         }
 
         rigidbody2D.MovePosition(position);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+
+        if (player != null)
+        {
+            player.ChangeHealth(-1);
+        }
+    }
+
+
+    public void Attack()
+    {
+        if(attackBlocked)
+        {
+            return;
+        }
+        animator.SetTrigger("Attack");
+        attackBlocked = true;
+        StartCoroutine(DelayAttack());
+    }
+
+
+    private IEnumerator DelayAttack()
+    {
+        yield return new WaitForSeconds(delay);
+        attackBlocked = false;
     }
 
 
