@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public float timeInvincible = 2.0f;
     bool isInvincible;
     float invincibleTimer;
+    
+    /// Player attack things
+    public float delay = 0.4f;
+    private bool attackBlocked;
 
 
     void Start()
@@ -32,6 +39,8 @@ public class PlayerController : MonoBehaviour
         MoveCharacter(movement);
     }
 
+
+
     void MoveCharacter(Vector2 direction)
     {
         // Move the character using Rigidbody2D
@@ -51,4 +60,8 @@ public class PlayerController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
+
+
+
+
 }

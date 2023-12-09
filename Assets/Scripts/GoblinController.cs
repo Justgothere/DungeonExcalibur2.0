@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GoblinController : MonoBehaviour
 {
@@ -14,8 +15,9 @@ public class GoblinController : MonoBehaviour
 
     float timer;
     int direction = 1;
-    public float delay = 0.4f;
-    private bool attackBlocked;
+
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -69,24 +71,8 @@ public class GoblinController : MonoBehaviour
         }
     }
 
-
-    public void Attack()
-    {
-        if(attackBlocked)
-        {
-            return;
-        }
-        animator.SetTrigger("Attack");
-        attackBlocked = true;
-        StartCoroutine(DelayAttack());
-    }
-
-
-    private IEnumerator DelayAttack()
-    {
-        yield return new WaitForSeconds(delay);
-        attackBlocked = false;
-    }
+    
+    
 
 
 }
