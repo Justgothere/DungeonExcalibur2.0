@@ -63,7 +63,7 @@ public class GoblinController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
 
         if (player != null)
         {
