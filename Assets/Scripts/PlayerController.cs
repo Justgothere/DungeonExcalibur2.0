@@ -1,28 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public int maxHealth = 10;
-    int currentHealth;
+    public int maxHealth = 100; 
+    private int currentHealth;
 
-    //This will be used in order to make player invincible after being hurt
-    public float timeInvincible = 2.0f;
-    bool isInvincible;
-    float invincibleTimer;
-    
-    /// Player attack things
-    public float delay = 0.4f;
-    private bool attackBlocked;
-
-
-    void Start()
-    {
-        currentHealth = maxHealth;
-    }
     void Update()
     {
         // Get input values for horizontal and vertical axes
@@ -30,38 +13,39 @@ public class PlayerController : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // Calculate movement vector
-        Vector2 movement = new Vector2(horizontalInput, verticalInput);
+        Vector2 movement = new(horizontalInput, verticalInput);
 
         // Normalize the vector to prevent faster diagonal movement
         movement = movement.normalized;
 
         // Move the character
         MoveCharacter(movement);
+
     }
-
-
 
     void MoveCharacter(Vector2 direction)
     {
         // Move the character using Rigidbody2D
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * direction);
     }
 
     public void ChangeHealth(int amount)
     {
-        if (amount < 0)
-        {
-            if (isInvincible)
-                return;
+        currentHealth += amount;
 
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
+        // Ensure health doesn't go below 0 or exceed maxHealth
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        // Check if the player is dead
+        if (currentHealth <= 0)
+        {
+            Die();
         }
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
     }
 
-
-
-
+    void Die()
+    {
+        // Add any death-related logic here, such as respawning or game over screen
+        Debug.Log("Player has died!");
+    }
 }
