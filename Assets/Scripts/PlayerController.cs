@@ -4,6 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
 
+    public AudioSource audioPlayer;
+
     void Update()
     {
         // Get input values for horizontal and vertical axes
@@ -27,4 +29,11 @@ public class PlayerController : MonoBehaviour
         transform.Translate(speed * Time.deltaTime * direction);
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "CollisionTag")
+        {
+            audioPlayer.Play();
+        }
+    }
 }
