@@ -5190,6 +5190,10 @@ PrefabInstance:
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 1553700974}
+    - target: {fileID: 1679656322612451968, guid: c58d633733fb1c54a9434ed6c8ee624f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342006512584507816, guid: c58d633733fb1c54a9434ed6c8ee624f, type: 3}
       propertyPath: m_Name
       value: Player

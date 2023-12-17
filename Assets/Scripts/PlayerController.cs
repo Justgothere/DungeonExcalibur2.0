@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection;
     public Rigidbody2D rb;
     bool isGrounded = false;
+
+    public string sceneName;
 
     void Start()
     {
@@ -45,12 +48,18 @@ public class PlayerController : MonoBehaviour
         // Move the character
         MoveCharacter(movement);
 
+
+        //Get input for next scene
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    SceneManager.LoadScene();
+       // }
+
     }
 
     
 
-
-    void MoveCharacter(Vector2 direction)
+void MoveCharacter(Vector2 direction)
     {
         // Move the character using Rigidbody2D
         transform.Translate(speed * Time.deltaTime * direction);
