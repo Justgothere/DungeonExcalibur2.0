@@ -1,10 +1,24 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
 
     public AudioSource audioPlayer;
+    Animator animator;
+
+    Vector2 lookDirection = new Vector2(1, 0);
+    private Vector2 moveDirection;
+    public Rigidbody2D rb;
+    bool isGrounded = false;
+
+    public string sceneName;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -15,15 +29,37 @@ public class PlayerController : MonoBehaviour
         // Calculate movement vector
         Vector2 movement = new(horizontalInput, verticalInput);
 
+
+        //added this to try and animate
+        if (!Mathf.Approximately(movement.x, 0.0f) || !Mathf.Approximately(movement.y, 0.0f))
+        {
+            lookDirection.Set(movement.x, movement.y);
+            //lookDirection.Normalize();
+        }
+        animator.SetFloat("Move X", lookDirection.x);
+        animator.SetFloat("Move Y", lookDirection.y);
+        // animator.SetFloat("Speed", movement.magnitude);
+        
+
+
         // Normalize the vector to prevent faster diagonal movement
         movement = movement.normalized;
 
         // Move the character
         MoveCharacter(movement);
 
+
+        //Get input for next scene
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    SceneManager.LoadScene();
+       // }
+
     }
 
-    void MoveCharacter(Vector2 direction)
+    
+
+void MoveCharacter(Vector2 direction)
     {
         // Move the character using Rigidbody2D
         transform.Translate(speed * Time.deltaTime * direction);
