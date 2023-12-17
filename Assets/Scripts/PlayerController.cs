@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     Animator animator;
 
     Vector2 lookDirection = new Vector2(1, 0);
-
+    private Vector2 moveDirection;
+    public Rigidbody2D rb;
+    bool isGrounded = false;
 
     void Start()
     {
@@ -31,11 +33,11 @@ public class PlayerController : MonoBehaviour
             lookDirection.Set(movement.x, movement.y);
             //lookDirection.Normalize();
         }
-
-
         animator.SetFloat("Move X", lookDirection.x);
         animator.SetFloat("Move Y", lookDirection.y);
         // animator.SetFloat("Speed", movement.magnitude);
+        
+
 
         // Normalize the vector to prevent faster diagonal movement
         movement = movement.normalized;
@@ -44,6 +46,9 @@ public class PlayerController : MonoBehaviour
         MoveCharacter(movement);
 
     }
+
+    
+
 
     void MoveCharacter(Vector2 direction)
     {
