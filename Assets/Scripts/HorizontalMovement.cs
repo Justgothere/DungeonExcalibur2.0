@@ -30,17 +30,6 @@ public class HorizontalMovement : Character
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalInput * speed * Time.deltaTime, rb.velocity.y);
-        if (horizontalInput > 0 && character.isFacingLeft)
-        {
-            character.isFacingLeft = false;
-            Flip();
-        }
-        if (horizontalInput < 0 && !character.isFacingLeft)
-        {
-            character.isFacingLeft = true;
-            Flip();
-        }
         SpeedModifier();
     }
 

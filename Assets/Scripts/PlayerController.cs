@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Move X", lookDirection.x);
         animator.SetFloat("Move Y", lookDirection.y);
         // animator.SetFloat("Speed", movement.magnitude);
-        
+
 
 
         // Normalize the vector to prevent faster diagonal movement
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.E))
         //{
         //    SceneManager.LoadScene();
-       // }
+        // }
 
     }
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "CollisionTag")
+        if (collision.gameObject.tag == "CollisionTag")
         {
             audioPlayer.Play();
         }
