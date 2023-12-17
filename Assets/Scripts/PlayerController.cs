@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource audioPlayer;
     Animator animator;
+    int currentCoins;
+    public int maxCoins = 10;
+    public int coins { get { return currentCoins; } }
 
     Vector2 lookDirection = new Vector2(1, 0);
     private Vector2 moveDirection;
@@ -57,9 +60,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+    public void ChangeCoins(int amount)
+    {
+        currentCoins = Mathf.Clamp(currentCoins + amount, 0, maxCoins);
+        Debug.Log(currentCoins);
+    }
 
-void MoveCharacter(Vector2 direction)
+    void MoveCharacter(Vector2 direction)
     {
         // Move the character using Rigidbody2D
         transform.Translate(speed * Time.deltaTime * direction);
