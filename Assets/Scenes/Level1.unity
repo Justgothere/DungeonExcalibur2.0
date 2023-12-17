@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87850021}
+  - component: {fileID: 87850022}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -154,6 +155,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87850022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87850020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa78bc05dab16e4297c69be2264df3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 1233526401}
 --- !u!4 &305387540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4342006512584507822, guid: c58d633733fb1c54a9434ed6c8ee624f, type: 3}
@@ -6210,6 +6224,10 @@ PrefabInstance:
       propertyPath: audioPlayer
       value: 
       objectReference: {fileID: 1553700974}
+    - target: {fileID: 421901827, guid: c58d633733fb1c54a9434ed6c8ee624f, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 87850022}
     - target: {fileID: 421901834, guid: c58d633733fb1c54a9434ed6c8ee624f, type: 3}
       propertyPath: m_Enabled
       value: 1
