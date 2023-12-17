@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class NextLevelDoor : MonoBehaviour
@@ -10,14 +9,9 @@ public class NextLevelDoor : MonoBehaviour
     // Level move zoned enter, if collider is a player
     // Move game to another scene
 
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Trigger Entered");
-
-        if(other.tag == "Player")
+    void OnTriggerEnter(Collider other)
         {
-            print("Switching Scene to " + Level2);
-            SceneManager.LoadScene(Level2, LoadSceneMode.Single);
+            SceneManager.LoadScene(2);
         }
-    }
+      
 }
