@@ -3,15 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelDoor : MonoBehaviour
 {
-    // sceneBuildIndex can be used instead of Level2 (safer if level name is changed down the line)
-    public int Level2;
+    // The name of the next level scene
+    public string nextLevelName = "Level2";
 
-    // Level move zoned enter, if collider is a player
-    // Move game to another scene
-
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the collider belongs to the player (you might need to tag your player or use layers)
+        if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(2);
+            // Load the next level by name
+            SceneManager.LoadScene(nextLevelName);
         }
-      
+    }
 }

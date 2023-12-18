@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5982402470240700332}
   - component: {fileID: 5906716189056830538}
   - component: {fileID: 680802317}
-  - component: {fileID: 680802316}
+  - component: {fileID: 442504461}
   m_Layer: 0
   m_Name: Next Level Door
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5983474814435879710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0268, y: 1.0489, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3307848, y: 1.4248481}
   m_EdgeRadius: 0
---- !u!114 &680802316
+--- !u!114 &442504461
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522485bf3c2ee4245b04e4101152ae28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level2: 2
+  nextLevelName: Level2

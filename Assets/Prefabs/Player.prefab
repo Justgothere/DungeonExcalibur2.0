@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 421901826}
   - component: {fileID: 421901827}
   - component: {fileID: 421901834}
+  - component: {fileID: 1551150462}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -190,6 +191,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   audioPlayer: {fileID: 0}
+  maxCoins: 10
+  rb: {fileID: 2437659970876199499}
+  sceneName: 
 --- !u!114 &421901826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  gameManager: {fileID: 0}
 --- !u!95 &421901834
 Animator:
   serializedVersion: 4
@@ -236,3 +241,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &1551150462
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342006512584507816}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.048031762, y: -0.56225866}
+  m_Size: {x: 0.37276098, y: 0.10151817}
+  m_Direction: 1
