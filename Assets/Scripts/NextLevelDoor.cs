@@ -8,7 +8,7 @@ public class NextLevelDoor : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the collider belongs to the player (you might need to tag your player or use layers)
+        // Check if the collider belongs to the player 
         if (other.CompareTag("Player"))
         {
             // Load the next level by name

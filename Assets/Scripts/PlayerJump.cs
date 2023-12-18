@@ -1,33 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private bool isJumping;
-    public float jump;
+    public float jumpForce = 8f;
 
-    //Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && !isJumping)
+        // Check for jump input
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jump));
-            isJumping = true;
+            Jump();
         }
     }
-    void OnCollisionEnter2D(Collision2D other)
+
+    void Jump()
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isJumping = false;
-        }
+        // Apply jump force
+        rb.velocity = new Vector2(rb.velocity.x, 0f); // Cancel vertical velocity before each jump
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 }
